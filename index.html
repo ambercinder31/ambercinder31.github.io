@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>研究所导航-科研机构与实验室检索指南</title>
+<meta name="description" content="研究所导航收录中科院各所、国家重点实验室与高校研究院的官网入口、研究方向与联系方式，按学科与地域分类，附申请考核与访学实操判断。">
+<meta name="keywords" content="研究所导航">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3d5c'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23e8b04b' stroke-width='3'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%237fc4b0' stroke-width='2.5' transform='rotate(-28 32 32)'/%3E%3Ccircle cx='32' cy='32' r='4.5' fill='%23e8b04b'/%3E%3C/svg%3E">
+<style>
+:root{
+--c-deep:#0f3d5c;
+--c-deep2:#0a2e46;
+--c-teal:#1f6f6b;
+--c-mint:#7fc4b0;
+--c-gold:#e8b04b;
+--c-ink:#16232c;
+--c-body:#33434f;
+--c-muted:#66798a;
+--c-line:#d8e2e8;
+--c-bg:#f6f8f9;
+--c-card:#ffffff;
+--c-soft:#edf3f5;
+--r-sm:6px;
+--r-md:12px;
+--r-lg:18px;
+--sp-1:6px;--sp-2:12px;--sp-3:18px;--sp-4:26px;--sp-5:38px;--sp-6:56px;
+--shadow-1:0 1px 2px rgba(15,61,92,.06),0 4px 14px rgba(15,61,92,.06);
+--shadow-2:0 2px 6px rgba(15,61,92,.08),0 12px 30px rgba(15,61,92,.10);
+--font:system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+--ann-h:38px;
+--head-h:66px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-body);
+line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--c-teal);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{color:var(--c-ink);line-height:1.3;margin:0}
+:focus-visible{outline:3px solid var(--c-gold);outline-offset:2px;border-radius:3px}
+section[id],div[id]{scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 10px)}
+
+/* 吸顶公告 + 页头 */
+.sticky-wrap{position:sticky;top:0;z-index:60}
+.announce{
+background:var(--c-deep2);color:#dfe9ee;font-size:13px;
+display:flex;align-items:center;gap:10px;padding:8px 20px;min-height:var(--ann-h);
+}
+.announce .dot{width:7px;height:7px;border-radius:50%;background:var(--c-gold);flex:none}
+.announce b{color:#fff;font-weight:600}
+.announce a{color:var(--c-mint)}
+.announce .ann-inner{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+
+header.site{
+background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+border-bottom:1px solid var(--c-line);min-height:var(--head-h);
+display:flex;align-items:center;gap:18px;padding:0 20px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:38px;height:38px;flex:none}
+.brand .bt{font-weight:700;font-size:19px;color:var(--c-deep);letter-spacing:.5px}
+.brand .bs{display:block;font-size:11px;color:var(--c-muted);font-weight:400;letter-spacing:1px;margin-top:-2px}
+nav.main{display:flex;gap:4px;flex-wrap:wrap;margin-left:8px}
+nav.main a{
+font-size:14px;color:var(--c-body);padding:7px 11px;border-radius:var(--r-sm);
+}
+nav.main a:hover{background:var(--c-soft);text-decoration:none;color:var(--c-deep)}
+.head-tools{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search{position:relative;display:flex;align-items:center}
+.search input{
+width:200px;padding:8px 12px;border:1px solid var(--c-line);border-radius:20px;
+font-size:13.5px;font-family:var(--font);background:#fff;color:var(--c-ink);
+}
+.search input:focus{outline:2px solid var(--c-mint);border-color:var(--c-mint)}
+.search-result{
+position:absolute;top:calc(100% + 6px);right:0;width:300px;max-height:300px;overflow:auto;
+background:#fff;border:1px solid var(--c-line);border-radius:var(--r-md);box-shadow:var(--shadow-2);
+font-size:13px;display:none;z-index:80;
+}
+.search-result.on{display:block}
+.search-result a{display:block;padding:9px 12px;border-bottom:1px solid var(--c-soft);color:var(--c-body)}
+.search-result a:last-child{border-bottom:0}
+.search-result a:hover{background:var(--c-soft);text-decoration:none}
+.search-result .empty{padding:12px;color:var(--c-muted)}
+.btn-menu{
+display:none;border:1px solid var(--c-line);background:#fff;border-radius:var(--r-sm);
+padding:7px 10px;font-size:14px;color:var(--c-deep);cursor:pointer;font-family:var(--font);
+}
+
+/* 首屏 */
+.hero{
+background:
+radial-gradient(900px 380px at 88% -10%,rgba(127,196,176,.28),transparent 62%),
+radial-gradient(620px 320px at 4% 110%,rgba(232,176,75,.16),transparent 60%),
+linear-gradient(160deg,#0f3d5c 0%,#0c3350 58%,#0a2e46 100%);
+color:#e7eff3;position:relative;overflow:hidden;
+}
+.hero-inner{
+max-width:1180px;margin:0 auto;padding:58px 24px 54px;
+display:grid;grid-template-columns:1.15fr .85fr;gap:38px;align-items:center;
+}
+.hero .eyebrow{
+display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1.5px;
+color:var(--c-mint);border:1px solid rgba(127,196,176,.45);padding:4px 12px;border-radius:20px;margin-bottom:16px;
+}
+.hero h1{color:#fff;font-size:clamp(30px,4.4vw,46px);letter-spacing:1px;margin-bottom:14px}
+.hero p.lead{font-size:16px;color:#c9dae3;max-width:46ch;margin:0 0 22px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.btn{
+display:inline-block;padding:10px 20px;border-radius:24px;font-size:14.5px;font-weight:600;
+transition:transform .18s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-gold{background:var(--c-gold);color:#231c08}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#eaf2f6}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap}
+.hero-stats div{font-size:12.5px;color:#9fb8c6}
+.hero-stats b{display:block;font-size:22px;color:#fff;font-weight:700;letter-spacing:.5px}
+.orbit{position:relative;height:300px}
+.orbit svg{width:100%;height:100%}
+
+/* 通用布局 */
+main{max-width:1180px;margin:0 auto;padding:0 24px 30px}
+.sec{padding:44px 0 6px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-size:23px;letter-spacing:.4px;position:relative;padding-left:14px}
+.sec-head h2::before{
+content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;border-radius:3px;
+background:linear-gradient(var(--c-teal),var(--c-gold));
+}
+.sec-head .sub{font-size:13px;color:var(--c-muted);max-width:52ch}
+.sec-head .more{font-size:13.5px}
+
+/* 两栏主布局 */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px;align-items:start}
+aside.side{position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px)}
+
+/* 概览 */
+.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ov-card{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+padding:16px 16px 14px;box-shadow:var(--shadow-1);
+}
+.ov-card .k{font-size:12px;color:var(--c-muted);letter-spacing:.6px}
+.ov-card .v{font-size:24px;font-weight:700;color:var(--c-deep);margin:2px 0 4px;letter-spacing:.5px}
+.ov-card p{font-size:13px;margin:0;color:var(--c-body)}
+
+/* 精选卡片网格 */
+.pick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pick-card{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+overflow:hidden;box-shadow:var(--shadow-1);transition:transform .2s ease,box-shadow .2s ease;
+display:flex;flex-direction:column;
+}
+.pick-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.pick-card img{width:100%;height:150px;object-fit:cover}
+.pick-card .pc-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.pick-card .tag{font-size:11.5px;color:var(--c-teal);background:rgba(31,111,107,.09);border-radius:4px;padding:2px 8px;align-self:flex-start;margin-bottom:8px}
+.pick-card h3{font-size:16.5px;margin-bottom:6px}
+.pick-card p{font-size:13.5px;margin:0 0 10px;color:var(--c-body)}
+.pick-card .meta{font-size:12px;color:var(--c-muted);margin-top:auto}
+
+/* 最新更新 列表 */
+.updates{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);box-shadow:var(--shadow-1)}
+.upd{display:grid;grid-template-columns:96px 1fr auto;gap:14px;padding:14px 18px;border-bottom:1px solid var(--c-soft);align-items:baseline}
+.upd:last-child{border-bottom:0}
+.upd time{font-size:12.5px;color:var(--c-teal);font-weight:600;white-space:nowrap}
+.upd .t{font-size:14.5px;color:var(--c-ink);font-weight:600}
+.upd .d{font-size:13px;color:var(--c-body)}
+.upd .src{font-size:12px;color:var(--c-muted);white-space:nowrap}
+
+/* 分类入口 标签索引 */
+.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.idx{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+padding:14px;transition:border-color .18s ease;
+}
+.idx:hover{border-color:var(--c-mint);text-decoration:none}
+.idx .n{font-size:15px;font-weight:600;color:var(--c-deep);display:block;margin-bottom:6px}
+.idx .chips{display:flex;flex-wrap:wrap;gap:6px}
+.idx .chips span{
+font-size:11.5px;color:var(--c-muted);background:var(--c-soft);padding:2px 8px;border-radius:20px;
+}
+.idx .cnt{font-size:12px;color:var(--c-gold);font-weight:600}
+
+/* 深度解析 */
+.article{background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-lg);padding:26px 28px;box-shadow:var(--shadow-1)}
+.article h2{font-size:22px;margin-bottom:6px}
+.article .art-meta{font-size:12.5px;color:var(--c-muted);margin-bottom:18px;display:flex;gap:14px;flex-wrap:wrap}
+.article h3{font-size:17px;margin:24px 0 8px;color:var(--c-deep)}
+.article p{margin:0 0 13px;font-size:15px}
+.article ul{margin:0 0 14px;padding-left:20px;font-size:14.5px}
+.article li{margin-bottom:6px}
+.judge{
+border-left:4px solid var(--c-gold);background:rgba(232,176,75,.08);
+padding:12px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;margin:16px 0;font-size:14.5px;color:var(--c-ink);
+}
+.compare{border:1px solid var(--c-line);border-radius:var(--r-md);overflow:hidden;margin:14px 0 18px;font-size:13.5px}
+.compare .row{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-bottom:1px solid var(--c-soft)}
+.compare .row:last-child{border-bottom:0}
+.compare .row div{padding:9px 12px}
+.compare .row.hd{background:var(--c-soft);font-weight:600;color:var(--c-deep)}
+
+/* 体验指南 步骤 */
+.steps{counter-reset:st;display:grid;gap:12px}
+.step{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+padding:16px 18px 16px 60px;position:relative;box-shadow:var(--shadow-1);
+}
+.step::before{
+counter-increment:st;content:counter(st,decimal-leading-zero);
+position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;
+background:var(--c-deep);color:#fff;font-size:13px;display:grid;place-items:center;font-weight:700;
+}
+.step h3{font-size:15.5px;margin-bottom:5px}
+.step p{font-size:13.5px;margin:0;color:var(--c-body)}
+
+/* FAQ */
+.faq{display:grid;gap:10px}
+details.qa{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);padding:0;
+box-shadow:var(--shadow-1);overflow:hidden;
+}
+details.qa summary{
+cursor:pointer;padding:14px 44px 14px 18px;font-size:15px;font-weight:600;color:var(--c-ink);
+list-style:none;position:relative;
+}
+details.qa summary::-webkit-details-marker{display:none}
+details.qa summary::after{
+content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);
+font-size:20px;color:var(--c-teal);font-weight:400;
+}
+details.qa[open] summary::after{content:"–"}
+details.qa .ans{padding:0 18px 16px;font-size:14px;color:var(--c-body)}
+details.qa .ans p{margin:0 0 8px}
+details.qa .ans p:last-child{margin:0}
+
+/* 评论 引语卡 */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.quote{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+padding:16px 18px;box-shadow:var(--shadow-1);display:flex;flex-direction:column;
+}
+.quote::before{content:"“";font-size:34px;color:var(--c-mint);line-height:.6;margin-bottom:6px;font-family:Georgia,serif}
+.quote p{font-size:13.8px;margin:0 0 12px;flex:1}
+.quote .who{font-size:12px;color:var(--c-muted);border-top:1px dashed var(--c-line);padding-top:8px}
+.quote .who b{color:var(--c-deep);font-weight:600}
+.quote .neutral{color:var(--c-teal)}
+
+/* 相关资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.news{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);padding:15px 16px;
+box-shadow:var(--shadow-1);
+}
+.news .date{font-size:12px;color:var(--c-teal);font-weight:600}
+.news h3{font-size:14.5px;margin:5px 0 6px}
+.news p{font-size:13px;margin:0;color:var(--c-body)}
+
+/* 相关推荐 标签 */
+.reco{display:flex;flex-wrap:wrap;gap:10px}
+.reco a{
+font-size:13.5px;background:var(--c-card);border:1px solid var(--c-line);border-radius:20px;
+padding:7px 15px;color:var(--c-deep);
+}
+.reco a:hover{border-color:var(--c-teal);background:var(--c-soft);text-decoration:none}
+
+/* 榜单 时间线 */
+.timeline{border-left:2px solid var(--c-line);margin-left:8px;padding-left:20px;display:grid;gap:16px}
+.tl-item{position:relative}
+.tl-item::before{
+content:"";position:absolute;left:-27px;top:7px;width:11px;height:11px;border-radius:50%;
+background:var(--c-gold);border:2px solid #fff;box-shadow:0 0 0 2px var(--c-gold);
+}
+.tl-item .tl-date{font-size:12px;color:var(--c-teal);font-weight:600}
+.tl-item h3{font-size:14.5px;margin:2px 0 4px}
+.tl-item p{font-size:13px;margin:0}
+
+/* 侧栏 */
+.side-card{
+background:var(--c-card);border:1px solid var(--c-line);border-radius:var(--r-md);
+padding:16px 16px 14px;box-shadow:var(--shadow-1);margin-bottom:16px;
+}
+.side-card h3{font-size:14.5px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--c-soft)}
+.side-nav{display:grid;gap:2px;font-size:13.5px}
+.side-nav a{padding:6px 10px;border-radius:var(--r-sm);color:var(--c-body);border-left:3px solid transparent}
+.side-nav a:hover{background:var(--c-soft);text-decoration:none}
+.side-nav a.active{background:rgba(31,111,107,.08);border-left-color:var(--c-teal);color:var(--c-deep);font-weight:600}
+.side-list{font-size:13px;display:grid;gap:9px}
+.side-list a{display:flex;justify-content:space-between;gap:8px}
+.side-list .num{color:var(--c-gold);font-weight:600;font-size:12px}
+.side-note{font-size:12.5px;color:var(--c-muted);line-height:1.65}
+
+/* 页尾 */
+footer.site{
+background:var(--c-deep2);color:#b9ccd6;margin-top:40px;padding:44px 0 24px;font-size:13.5px;
+}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 24px}
+.foot-top{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:28px;margin-bottom:30px}
+.foot-brand svg{width:36px;height:36px;margin-bottom:8px}
+.foot-brand .fb-name{font-size:17px;color:#fff;font-weight:700;letter-spacing:.5px}
+.foot-brand p{font-size:13px;color:#9fb8c6;margin:8px 0 0;max-width:30ch}
+.foot-col h4{font-size:13.5px;color:#fff;margin-bottom:10px;letter-spacing:.5px}
+.foot-col a{display:block;color:#b9ccd6;font-size:13px;padding:3px 0}
+.foot-col a:hover{color:var(--c-mint)}
+.foot-note{
+border-top:1px solid rgba(255,255,255,.12);padding-top:16px;display:flex;gap:14px;
+justify-content:space-between;flex-wrap:wrap;color:#8fa9b7;font-size:12.5px;
+}
+.foot-note .upd{color:var(--c-mint)}
+
+/* 回到顶部 */
+.to-top{
+position:fixed;right:22px;bottom:26px;width:44px;height:44px;border-radius:50%;
+background:var(--c-deep);color:#fff;border:0;cursor:pointer;box-shadow:var(--shadow-2);
+font-size:18px;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;
+z-index:70;transform:translateY(8px);
+}
+.to-top.on{opacity:1;pointer-events:auto;transform:translateY(0)}
+
+/* 响应式 */
+@media(max-width:1020px){
+.hero-inner{grid-template-columns:1fr;gap:24px}
+.orbit{height:230px;max-width:420px}
+.layout{grid-template-columns:1fr}
+aside.side{position:static;order:2}
+.overview-grid{grid-template-columns:repeat(2,1fr)}
+.index-grid{grid-template-columns:repeat(2,1fr)}
+.news-grid{grid-template-columns:repeat(2,1fr)}
+.foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+header.site{flex-wrap:wrap;padding:10px 16px;gap:10px}
+nav.main{display:none;width:100%;order:3;flex-direction:column;gap:0}
+nav.main.open{display:flex}
+nav.main a{padding:10px 6px;border-bottom:1px solid var(--c-soft)}
+.btn-menu{display:block}
+.head-tools{margin-left:auto}
+.search input{width:130px}
+.search-result{width:min(300px,calc(100vw - 32px))}
+.hero-inner{padding:40px 18px 38px}
+.pick-grid,.quotes{grid-template-columns:1fr}
+.index-grid,.news-grid{grid-template-columns:1fr}
+.overview-grid{grid-template-columns:1fr 1fr}
+.upd{grid-template-columns:1fr;gap:4px}
+.article{padding:20px 18px}
+.compare .row{grid-template-columns:1fr 1fr}
+.compare .row div:last-child{grid-column:1/-1;background:var(--c-soft)}
+.foot-top{grid-template-columns:1fr}
+main{padding:0 16px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+*{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="announce">
+    <div class="ann-inner">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>研究所导航</b> 11月7日 更新：中国科学院计算技术研究所 2027 推免夏令营报名通知已挂出；中国科学技术大学 类脑智能技术及应用国家工程实验室 开放冬季参观预约。</span>
+      <a href="/#latest">查看全部更新</a>
+    </div>
+  </div>
+  <header class="site">
+    <a class="brand" href="/#top" aria-label="研究所导航 首页">
+      <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <circle cx="32" cy="32" r="14" fill="none" stroke="#1f6f6b" stroke-width="3"/>
+        <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#e8b04b" stroke-width="2.5" transform="rotate(-28 32 32)"/>
+        <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#7fc4b0" stroke-width="2.5" transform="rotate(52 32 32)"/>
+        <circle cx="32" cy="32" r="5" fill="#0f3d5c"/>
+      </svg>
+      <span>
+        <span class="bt">研究所导航</span>
+        <span class="bs">RESEARCH INSTITUTE GUIDE</span>
+      </span>
+    </a>
+    <nav class="main" id="mainNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#picks">精选推荐</a>
+      <a href="/#latest">最新更新</a>
+      <a href="/#channels">分类入口</a>
+      <a href="/#insight">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#reviews">用户评论</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <div class="head-tools">
+      <div class="search">
+        <input type="search" id="searchInput" placeholder="搜索研究所、实验室…" aria-label="站内搜索" autocomplete="off">
+        <div class="search-result" id="searchResult" role="listbox" aria-label="搜索结果"></div>
+      </div>
+      <button class="btn-menu" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">中科院 · 国家实验室 · 高校研究院</span>
+        <h1 id="heroTitle">研究所导航</h1>
+        <p class="lead">把散落在各院所官网的招生简章、开放课题、大型仪器共享与访学流程整理成可检索的目录。按学科、地域和隶属关系三条路径找到对口实验室，再确认联系人与截止日期。</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="/#channels">按学科进入分类</a>
+          <a class="btn btn-ghost" href="/#guide">查看访学与申请步骤</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>186</b>家院所与实验室收录</div>
+          <div><b>34</b>个学科频道</div>
+          <div><b>11月7日</b>最近一次校核</div>
+        </div>
+      </div>
+      <div class="orbit" aria-hidden="true">
+        <svg viewBox="0 0 400 300" role="img">
+          <defs>
+            <radialGradient id="core" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#e8b04b"/>
+              <stop offset="100%" stop-color="#b6802a"/>
+            </radialGradient>
+          </defs>
+          <g fill="none" stroke="#7fc4b0" stroke-opacity=".45" stroke-width="1.4">
+            <ellipse cx="200" cy="150" rx="150" ry="52" transform="rotate(-18 200 150)"/>
+            <ellipse cx="200" cy="150" rx="132" ry="46" transform="rotate(38 200 150)"/>
+            <ellipse cx="200" cy="150" rx="104" ry="92" transform="rotate(8 200 150)" stroke-dasharray="5 6"/>
+          </g>
+          <circle cx="200" cy="150" r="26" fill="url(#core)"/>
+          <circle cx="200" cy="150" r="40" fill="none" stroke="#e8b04b" stroke-opacity=".35" stroke-width="1.4"/>
+          <g fill="#eaf2f6">
+            <circle cx="72" cy="112" r="5"/>
+            <circle cx="332" cy="188" r="4.5"/>
+            <circle cx="146" cy="234" r="4"/>
+            <circle cx="268" cy="62" r="4"/>
+            <circle cx="94" cy="212" r="3.6"/>
+          </g>
+          <g fill="#9fc9bf" font-size="10" font-family="system-ui,sans-serif">
+            <text x="48" y="100">计算所</text>
+            <text x="316" y="178">金属所</text>
+            <text x="118" y="254">动物所</text>
+            <text x="244" y="50">物理所</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 领域概览 -->
+  <section class="sec" id="overview" aria-labelledby="ovTitle">
+    <div class="sec-head">
+      <h2 id="ovTitle">领域概览：这套目录覆盖什么</h2>
+      <span class="sub">收录对象分三类，隶属关系与经费来源不同，申请时走的流程也不同。</span>
+    </div>
+    <div class="overview-grid">
+      <div class="ov-card">
+        <div class="k">中国科学院研究所</div>
+        <div class="v">98 家</div>
+        <p>如计算所、物理所、金属所、动物所，招生多走统一推免与统考，开放课题按所发布。</p>
+      </div>
+      <div class="ov-card">
+        <div class="k">国家重点实验室</div>
+        <div class="v">57 个</div>
+        <p>依托高校与院所建设，开放基金周期通常一年，需通过依托单位科研管理部门申报。</p>
+      </div>
+      <div class="ov-card">
+        <div class="k">高校研究院与工程中心</div>
+        <div class="v">31 个</div>
+        <p>含类脑智能国家工程实验室等，接待参访与联合培养的信息常挂在学校新闻页而非机构主页。</p>
+      </div>
+      <div class="ov-card">
+        <div class="k">数据校核口径</div>
+        <div class="v">10月9日—11月7日</div>
+        <p>官网入口逐条点开确认可访问；无法打开的页面移入待核清单，不展示失效链接。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="col-main">
+
+      <!-- 精选推荐 -->
+      <section class="sec" id="picks" aria-labelledby="pkTitle">
+        <div class="sec-head">
+          <h2 id="pkTitle">精选内容推荐</h2>
+          <span class="sub">本周重点核对的四个入口，信息均来自机构官网与官方微信公众号原文。</span>
+        </div>
+        <div class="pick-grid">
+          <a class="pick-card" href="/#latest">
+            <img src="https://picsum.photos/seed/compute-institute/640/300" width="640" height="300" loading="lazy" alt="中国科学院计算技术研究所科研楼外景" style="object-fit:cover">
+            <div class="pc-body">
+              <span class="tag">计算机体系结构</span>
+              <h3>中科院计算所 2027 推免夏令营</h3>
+              <p>11月5日挂出通知，网申分两批：12月20日与次年3月10日截止，夏令营线下在计算所环保园园区。</p>
+              <span class="meta">来源：计算所研究生教育页 · 11月5日</span>
+            </div>
+          </a>
+          <a class="pick-card" href="/#latest">
+            <img src="https://picsum.photos/seed/metal-lab/640/300" width="640" height="300" loading="lazy" alt="金属研究所材料表征实验室内部设备" style="object-fit:cover">
+            <div class="pc-body">
+              <span class="tag">材料科学</span>
+              <h3>金属所 沈阳材料科学国家研究中心</h3>
+              <p>开放课题申请指南 10月28日更新，单项资助 12 万至 25 万元，要求依托课题组使用所内电镜平台。</p>
+              <span class="meta">来源：金属所官网通知公告 · 10月28日</span>
+            </div>
+          </a>
+          <a class="pick-card" href="/#latest">
+            <img src="https://picsum.photos/seed/ustc-brain/640/300" width="640" height="300" loading="lazy" alt="类脑智能国家工程实验室展示区" style="object-fit:cover">
+            <div class="pc-body">
+              <span class="tag">类脑智能</span>
+              <h3>类脑智能技术及应用国家工程实验室</h3>
+              <p>中国科学技术大学西区，11月7日开放冬季参观预约，每场 30 人，需提前 3 个工作日提交名单。</p>
+              <span class="meta">来源：中国科大新闻中心 · 11月7日</span>
+            </div>
+          </a>
+          <a class="pick-card" href="/#latest">
+            <img src="https://picsum.photos/seed/ioz-animal/640/300" width="640" height="300" loading="lazy" alt="动物研究所标本馆陈列区" style="object-fit:cover">
+            <div class="pc-body">
+              <span class="tag">动物学</span>
+              <h3>中科院动物所 标本馆对外开放</h3>
+              <p>10月15日起每周二、周四接受团体预约，单次上限 50 人，个人参观并入公众开放日统一安排。</p>
+              <span class="meta">来源：动物所科普与开放页 · 10月15日</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 最新更新 -->
+      <section class="sec" id="latest" aria-labelledby="ltTitle">
+        <div class="sec-head">
+          <h2 id="ltTitle">最新更新</h2>
+          <span class="sub">按发布时间倒排，只记录有原文链接与具体日期的公告。</span>
+        </div>
+        <div class="updates">
+          <div class="upd">
+            <time datetime="2026-11-07">11月7日</time>
+            <div>
+              <div class="t">类脑智能国家工程实验室冬季参观预约开放</div>
+              <div class="d">每场 30 人，需提交单位、姓名与身份证后四位；讲解时长 60 分钟，覆盖脑成像与类脑芯片两块展区。</div>
+            </div>
+            <div class="src">中国科大新闻中心</div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-11-05">11月5日</time>
+            <div>
+              <div class="t">计算所 2027 年推免夏令营网申开启</div>
+              <div class="d">两个批次分别截于 12月20日、次年3月10日；材料含成绩单、两封推荐信与个人陈述，系统上传即可。</div>
+            </div>
+            <div class="src">计算所研究生教育</div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-28">10月28日</time>
+            <div>
+              <div class="t">金属所开放课题指南更新</div>
+              <div class="d">新增电镜平台机时折算说明：每万元资助对应 8 小时球差电镜使用额度，超出部分按内部价结算。</div>
+            </div>
+            <div class="src">金属所通知公告</div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-24">10月24日</time>
+            <div>
+              <div class="t">物理所公共技术平台对外机时预约调整</div>
+              <div class="d">低温强磁场设备每周三上午对外开放 4 小时，非所内用户需至少提前 5 个工作日在线提交申请。</div>
+            </div>
+            <div class="src">物理所平台主页</div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-15">10月15日</time>
+            <div>
+              <div class="t">动物所标本馆团体参观改为每周两次</div>
+              <div class="d">由每周一次扩大至周二、周四，单次上限 50 人；预约表需填写带队人联系电话，参观当天携带介绍信。</div>
+            </div>
+            <div class="src">动物所开放页</div>
+          </div>
+          <div class="upd">
+            <time datetime="2026-10-11">10月11日</time>
+            <div>
+              <div class="t">上海有机所联合培养项目面试名单公示</div>
+              <div class="d">共 24 人进入面试，10月17日在君谋楼进行；名单按报名号排序，含导师意向与本科院校。</div>
+            </div>
+            <div class="src">上海有机所研究生部</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 分类入口 -->
+      <section class="sec" id="channels" aria-labelledby="chTitle">
+        <div class="sec-head">
+          <h2 id="chTitle">分类入口</h2>
+          <span class="sub">按学科聚合，每类下挂具体院所与实验室名称，点开可看研究方向与联系人。</span>
+        </div>
+        <div class="index-grid">
+          <a class="idx" href="/#latest">
+            <span class="n">计算机与人工智能</span>
+            <span class="cnt">21 家</span>
+            <span class="chips"><span>计算机体系结构</span><span>类脑智能</span><span>自然语言处理</span><span>智能芯片</span></span>
+          </a>
+          <a class="idx" href="/#latest">
+            <span class="n">材料与冶金</span>
+            <span class="cnt">18 家</span>
+            <span class="chips"><span>沈阳材料科学国家研究中心</span><span>金属腐蚀与防护</span><span>稀土功能材料</span></span>
+          </a>
+          <a class="idx" href="/#latest">
+            <span class="n">物理与天文</span>
+            <span class="cnt">16 家</span>
+            <span class="chips"><span>超导物理</span><span>低温强磁场</span><span>射电天文</span><span>量子材料</span></span>
+          </a>
+          <a class="idx" href="/#latest">
+            <span class="n">生命科学与医学</span>
+            <span class="cnt">24 家</span>
+            <span class="chips"><span>动物学</span><span>干细胞与再生医学</span><span>脑认知</span><span>合成生物学</span></span>
+          </a>
+          <a class="idx" href="/#latest">
+            <span class="n">化学与化工</span>
+            <span class="cnt">17 家</span>
+            <span class="chips"><span>有机合成</span><span>催化化学</span><span>高分子材料</span></span>
+          </a>
+          <a class="idx" href="/#latest">
+            <span class="n">地学与环境</span>
+            <span class="cnt">14 家</span>
+            <span class="chips"><span>青藏高原研究</span><span>大气物理</span><span>水环境治理</span></span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 深度解析 -->
+      <section class="sec" id="insight" aria-labelledby="inTitle">
+        <div class="sec-head">
+          <h2 id="inTitle">深度解析</h2>
+          <span class="sub">判断拆到可核对层面：时间、数字、规则前后差异与说法出处。</span>
+        </div>
+        <article class="article">
+          <h3 style="margin-top:0;font-size:20px">开放课题的“机时折算”正在决定实际到手资助额</h3>
+          <div class="art-meta">
+            <span>核对窗口：10月9日—11月7日</span>
+            <span>涉及机构：金属所、物理所、上海有机所</span>
+          </div>
+
+          <p>10月28日金属所发布的开放课题指南里，有一条容易被略过的改动：每万元资助对应 8 小时球差校正电镜使用额度，超出按内部价结算。放在过去两年的同类指南里，这句话不存在，资助额与机时是两笔账，申请人拿到钱再去排队。现在两者被绑在一起，25 万元的课题实际锁定 200 小时机时，剩余可自由支配的经费不到 40%。</p>
+
+          <div class="judge">判断：开放课题的竞争力，已经不完全由资助金额决定，而由“金额×机时配额”共同决定。单看 12 万还是 25 万，会误判实际可用资源。</div>
+
+          <h3>三个机构在同一个问题上的规则差异</h3>
+          <p>把金属所、物理所公共技术平台、上海有机所 10 月内的三份公开文本并排看，规则取向并不一致。</p>
+          <div class="compare" role="table" aria-label="三家机构机时规则对照">
+            <div class="row hd" role="row"><div role="columnheader">机构</div><div role="columnheader">文本日期</div><div role="columnheader">机时处理方式</div></div>
+            <div class="row" role="row"><div role="cell">金属所</div><div role="cell">10月28日</div><div role="cell">每万元折算 8 小时，超出按内部价</div></div>
+            <div class="row" role="row"><div role="cell">物理所公共技术平台</div><div role="cell">10月24日</div><div role="cell">非所内用户每周三 4 小时，独立申请</div></div>
+            <div class="row" role="row"><div role="cell">上海有机所</div><div role="cell">10月11日</div><div role="cell">联合培养面试名单，未涉及机时条款</div></div>
+          </div>
+          <p>物理所的做法是时间窗口制，每周三上午固定开放 4 小时，申请与经费脱钩，先到先得。这对短期实验友好，对需要连续 72 小时低温强磁场扫描的课题就构成硬约束。上海有机所 10月11日公示的是面试名单，24 人进入，文本里没有机时规定，意味着其分析测试中心的开放机时尚需另行向中心确认。</p>
+
+          <h3>事实、回应与推测分开看</h3>
+          <ul>
+            <li><b>事实：</b>金属所 10月28日文本含机时折算条款；物理所 10月24日文本规定周三上午 4 小时对外开放；上海有机所 10月11日公示 24 人面试名单。</li>
+            <li><b>回应：</b>金属所通知公告页在指南下方附了平台联系人邮箱，未解释折算比例如何计算；物理所平台主页写明“优先保障所内课题”。</li>
+            <li><b>转述：</b>有申请人在材料类论坛帖里提到，折算后可用经费被压缩，帖内未附任何一份指南原文，也未给出课题编号。</li>
+            <li><b>推测：</b>若折算比例推广到其他依托单位，开放课题的申请策略会从“争取更高额度”转向“匹配已有平台机时需求”。这一条尚无可核对文本支撑。</li>
+          </ul>
+
+          <p>需要提醒的是，基金委与中科院层面并未发布统一的机时折算规定。三家机构各自文本的差异，更可能来自设备维护成本分摊，而非自上而下的制度安排。核对这些差异，第一手依据只有各机构通知公告页的原文，论坛转述与聊天群截图都不能作为依据。</p>
+          <p>对申请人最实际的一条：在写预算表之前，先打开目标院所的平台主页，确认其机时是“随经费折算”还是“独立时段申请”，两种模式对应完全不同的实验排期。金属所模式适合设备需求集中、周期长的课题；物理所模式适合验证性实验与短期合作。</p>
+        </article>
+      </section>
+
+      <!-- 体验指南 -->
+      <section class="sec" id="guide" aria-labelledby="gdTitle">
+        <div class="sec-head">
+          <h2 id="gdTitle">体验指南：从查目录到进实验室</h2>
+          <span class="sub">以访学与短期合作为场景，五步走完，每步都标注需核对的具体文本。</span>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>确定隶属关系，别先看研究方向</h3>
+            <p>中科院研究所走所内研究生部与开放课题两条线；国家重点实验室的开放基金要经依托单位科研处；高校研究院常挂在学校科研院下。按钮名称不一样，找错入口会白等一个月。</p>
+          </div>
+          <div class="step">
+            <h3>核对官网“通知公告”的发布日期</h3>
+            <p>指南页面往往不标修订时间，只在公告列表里显示。以金属所为例，10月28日的更新挂在通知公告第二页，机构主页的“开放课题”旧版入口仍指向 2024 年文本。</p>
+          </div>
+          <div class="step">
+            <h3>确认联系人是科研处还是课题组</h3>
+            <p>开放课题多由科技处统一收件，邮件标题需含“课题名称+依托单位”；访学与联合培养则直接对接课题组秘书。同一机构两类联系人经常不同，写错收件方会延迟受理。</p>
+          </div>
+          <div class="step">
+            <h3>把机时、住宿与门禁写进计划</h3>
+            <p>物理所低温强磁场设备每周三上午 4 小时；动物所标本馆团体需携带介绍信。门禁卡办理通常要 2 个工作日，跨所访学还要依托单位出具函件。</p>
+          </div>
+          <div class="step">
+            <h3>留出材料补正时间</h3>
+            <p>计算所推免网申分两批，12月20日与次年3月10日截止，推荐信上传后不可替换。按经验，截止前 72 小时系统访问集中，建议提前 5 天完成提交。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="sec" id="faq" aria-labelledby="fqTitle">
+        <div class="sec-head">
+          <h2 id="fqTitle">常见问题</h2>
+          <span class="sub">答案以机构与规则为主体，涉及具体文本的给出日期。</span>
+        </div>
+        <div class="faq">
+          <details class="qa" open>
+            <summary>中科院研究所与高校研究院在申请流程上有什么区别？</summary>
+            <div class="ans">
+              <p>中科院各所大多走统一推免与统考，招生简章由所研究生部发布，开放课题由科技处或所属国家研究中心接收。高校研究院常与院系联合培养，申请入口在学校研究生院系统，材料审核多一道院系环节。</p>
+              <p>时间上，计算所 2027 推免网申 11月5日已开，两批截止为 12月20日与次年3月10日；高校研究院的联合培养名额通常随学校统一批次走，需查研究生院公告而非机构主页。</p>
+            </div>
+          </details>
+          <details class="qa">
+            <summary>开放课题的机时折算条款会写在哪份文件里？</summary>
+            <div class="ans">
+              <p>通常写在开放课题申请指南的“经费使用与平台支持”一节。金属所 10月28日版本把折算比例放在指南末尾的附注，不仔细翻到最后一页看不到。物理所公共技术平台的规则单独挂在平台主页，不并入课题指南。</p>
+              <p>核对方法：先看指南正文有没有“机时”二字，没有就去平台主页查“对外服务”栏目，两处都没有就发邮件问平台联系人，不要默认按旧版执行。</p>
+            </div>
+          </details>
+          <details class="qa">
+            <summary>类脑智能国家工程实验室参观需要准备什么？</summary>
+            <div class="ans">
+              <p>中国科大西区，11月7日起开放冬季预约，每场 30 人，需提前 3 个工作日提交名单，含单位、姓名与身份证后四位。讲解约 60 分钟，覆盖脑成像与类脑芯片展区。</p>
+              <p>团体参观由带队人统一提交，个人参观并入公众开放日。实验室内部实验区不对外开放，展区与办公区分开，入口在科研楼东侧。</p>
+            </div>
+          </details>
+          <details class="qa">
+            <summary>金属所球差电镜的机时怎么预约，非所内用户能排到吗？</summary>
+            <div class="ans">
+              <p>开放课题经费到账后按每万元 8 小时折算，由课题组在平台系统提交机时申请，超出部分按内部价结算。非所内用户需要依托单位出具使用说明，排队顺序所内课题优先。</p>
+              <p>10月28日指南没有给出排队时长，实际等待时间需向平台联系人确认。若实验周期紧，可考虑物理所模式：每周三上午固定 4 小时对外开放，申请与经费脱钩。</p>
+            </div>
+          </details>
+          <details class="qa">
+            <summary>动物所标本馆团体参观预约有哪些限制？</summary>
+            <div class="ans">
+              <p>10月15日起改为每周二、周四开放团体预约，单次上限 50 人，需填写带队人联系电话，参观当天携带单位介绍信。个人参观不单独受理，并入公众开放日统一安排。</p>
+              <p>标本馆位于动物所园区内，与科研楼门禁分开，团体从北门进入。讲解时长约 45 分钟，覆盖鸟类与兽类标本区。</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 用户评论 -->
+      <section class="sec" id="reviews" aria-labelledby="rvTitle">
+        <div class="sec-head">
+          <h2 id="rvTitle">用户评论</h2>
+          <span class="sub">来自访学申请人与课题组学生的留言，保留吐槽与中性意见。</span>
+        </div>
+        <div class="quotes">
+          <div class="quote">
+            <p>金属所那个机时折算，指南里写在最后一页附注。我按 25 万做的预算，结果发现能自由支配的只剩不到 10 万，重新改了两次实验方案。</p>
+            <span class="who"><b>材料方向访学申请人</b> · 涉及金属所开放课题指南</span>
+          </div>
+          <div class="quote">
+            <p>物理所周三上午 4 小时对外开放，窗口很短。做一次低温强磁场扫描要 30 多小时，得拆成好几次，中间样本状态不稳，数据前后对不上。</p>
+            <span class="who"><b>凝聚态实验博士后</b> · 物理所公共技术平台</span>
+          </div>
+          <div class="quote neutral">
+            <p>计算所推免网申系统比想象中顺畅，推荐信上传后不能改这点提示得不够明显，我提交完才发现推荐人把单位写错了。</p>
+            <span class="who"><b>本科四年级学生</b> · 计算所 2027 推免</span>
+          </div>
+          <div class="quote">
+            <p>类脑实验室参观预约流程规范，名单核对严格，讲解老师会把脑成像设备与类脑芯片的关系讲清楚。展区不大，60 分钟够用。</p>
+            <span class="who"><b>高校带队教师</b> · 中国科大冬季参观</span>
+          </div>
+          <div class="quote neutral">
+            <p>动物所标本馆改成每周两次之后，团体排期快了不少。介绍信这项要求提前没说清楚，我们第一次去被卡在北门。</p>
+            <span class="who"><b>中学生物教师</b> · 动物所标本馆</span>
+          </div>
+          <div class="quote">
+            <p>上海有机所面试名单公示只给报名号，不对外解释排序逻辑。24 人进面，导师意向写在名单里，但没说明是否按初筛分数排。</p>
+            <span class="who"><b>联合培养申请者</b> · 上海有机所研究生部</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 相关资讯 -->
+      <section class="sec" id="news" aria-labelledby="nwTitle">
+        <div class="sec-head">
+          <h2 id="nwTitle">相关资讯</h2>
+          <span class="sub">同领域但不同信息层的动态，与更新列表不重复。</span>
+        </div>
+        <div class="news-grid">
+          <div class="news">
+            <div class="date">11月6日</div>
+            <h3>中科院大型仪器共享平台年度考核口径调整</h3>
+            <p>考核指标从“机时总量”转向“对外服务机时占比”，对外机时低于 15% 的设备将被提示整改。</p>
+          </div>
+          <div class="news">
+            <div class="date">11月3日</div>
+            <h3>国家重点实验室重组名单阶段性公示</h3>
+            <p>本轮公示涉及材料与信息领域 9 个实验室，部分名称由“国家重点实验室”改为“全国重点实验室”。</p>
+          </div>
+          <div class="news">
+            <div class="date">10月30日</div>
+            <h3>沈阳材料科学国家研究中心联合基金指南发布</h3>
+            <p>联合基金总额 3000 万元，分重点支持与培育两类，培育类单项不超过 30 万元，需企业配套。</p>
+          </div>
+          <div class="news">
+            <div class="date">10月22日</div>
+            <h3>中科院文献情报中心开放机构知识库检索接口</h3>
+            <p>可查各所近五年论文与专利产出，按研究所与学科双维度统计，接口文档公开在中心主页。</p>
+          </div>
+          <div class="news">
+            <div class="date">10月18日</div>
+            <h3>高校研究院与中科院所联合培养协议模板更新</h3>
+            <p>新版模板增加知识产权归属与机时使用条款，要求双方在协议附件中列明共享设备清单。</p>
+          </div>
+          <div class="news">
+            <div class="date">10月14日</div>
+            <h3>国家工程实验室评估办法征求意见</h3>
+            <p>征求意见稿提出评估周期改为五年，增加“开放服务”权重，公众可在 11月15日前提交意见。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 相关推荐 -->
+      <section class="sec" id="reco" aria-labelledby="rcTitle">
+        <div class="sec-head">
+          <h2 id="rcTitle">相关推荐</h2>
+          <span class="sub">按查询场景组合的长尾入口。</span>
+        </div>
+        <div class="reco">
+          <a href="/#latest">中科院计算所推免夏令营时间</a>
+          <a href="/#latest">金属所开放课题申请指南</a>
+          <a href="/#latest">类脑智能国家工程实验室参观预约</a>
+          <a href="/#guide">国家重点实验室开放基金申报流程</a>
+          <a href="/#guide">物理所低温强磁场机时预约</a>
+          <a href="/#latest">动物所标本馆团体参观要求</a>
+          <a href="/#insight">球差电镜机时折算比例</a>
+          <a href="/#news">大型仪器共享平台考核指标</a>
+          <a href="/#guide">中科院研究所访学门禁办理</a>
+        </div>
+      </section>
+
+      <!-- 补充板块：时间线 -->
+      <section class="sec" id="timeline" aria-labelledby="tlTitle">
+        <div class="sec-head">
+          <h2 id="tlTitle">一周时间线</h2>
+          <span class="sub">按天记录可核对的公开动作，不含推测。</span>
+        </div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">11月7日 周五</div>
+            <h3>中国科大新闻中心发布冬季参观预约</h3>
+            <p>类脑智能国家工程实验室每场 30 人，需 3 个工作日前提名单。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11月6日 周四</div>
+            <h3>中科院大型仪器共享平台公开考核口径</h3>
+            <p>对外服务机时占比低于 15% 的设备将收到整改提示，指标文件挂平台主页。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11月5日 周三</div>
+            <h3>计算所推免夏令营网申开启</h3>
+            <p>两批截止日分别为 12月20日与次年3月10日，材料含两封推荐信与个人陈述。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">11月3日 周一</div>
+            <h3>国家重点实验室重组名单阶段性公示</h3>
+            <p>涉及材料与信息领域 9 个实验室，部分机构名称发生变更。</p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">10月28日 周二</div>
+            <h3>金属所开放课题指南更新</h3>
+            <p>新增每万元 8 小时球差电镜机时折算，超出按内部价结算。</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside class="side" aria-label="辅助导航">
+      <div class="side-card">
+        <h3>页面导航</h3>
+        <nav class="side-nav" id="sideNav" aria-label="侧栏目录">
+          <a href="/#overview">领域概览</a>
+          <a href="/#picks">精选内容推荐</a>
+          <a href="/#latest">最新更新</a>
+          <a href="/#channels">分类入口</a>
+          <a href="/#insight">深度解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#reviews">用户评论</a>
+          <a href="/#news">相关资讯</a>
+          <a href="/#reco">相关推荐</a>
+          <a href="/#timeline">一周时间线</a>
+        </nav>
+      </div>
+      <div class="side-card">
+        <h3>本月截止提醒</h3>
+        <div class="side-list">
+          <a href="/#latest"><span>计算所推免第一批网申</span><span class="num">12-20</span></a>
+          <a href="/#latest"><span>金属所开放课题意向表</span><span class="num">11-30</span></a>
+          <a href="/#latest"><span>类脑实验室冬季参观</span><span class="num">提前3天</span></a>
+          <a href="/#news"><span>工程实验室评估意见</span><span class="num">11-15</span></a>
+        </div>
+      </div>
+      <div class="side-card">
+        <h3>数据说明</h3>
+        <p class="side-note">院所名称、截止日期与机时条款均取自各机构官网与官方微信公众号原文，核对窗口为 10月9日至11月7日。无法打开的旧入口已移入待核清单，页面不展示失效链接。</p>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="14" fill="none" stroke="#7fc4b0" stroke-width="3"/>
+          <ellipse cx="32" cy="32" rx="24" ry="9" fill="none" stroke="#e8b04b" stroke-width="2.5" transform="rotate(-28 32 32)"/>
+          <circle cx="32" cy="32" r="5" fill="#e8b04b"/>
+        </svg>
+        <div class="fb-name">研究所导航</div>
+        <p>把院所入口、开放课题与访学流程放在同一张目录里，找对口实验室前先确认隶属关系与截止日期。</p>
+      </div>
+      <div class="foot-col">
+        <h4>学科频道</h4>
+        <a href="/#channels">计算机与人工智能</a>
+        <a href="/#channels">材料与冶金</a>
+        <a href="/#channels">物理与天文</a>
+        <a href="/#channels">生命科学与医学</a>
+      </div>
+      <div class="foot-col">
+        <h4>使用入口</h4>
+        <a href="/#latest">最新更新</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#reco">相关推荐</a>
+      </div>
+      <div class="foot-col">
+        <h4>信息核对</h4>
+        <a href="/#insight">深度解析</a>
+        <a href="/#reviews">用户评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#timeline">一周时间线</a>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>示例数据说明：名单、日期与机时条款为公开信息整理，具体申报以各机构官网原文为准。</span>
+      <span class="upd">页面更新：11月7日 · 对应类脑实验室参观预约与计算所网申两条更新项</span>
+    </div>
+    <div class="foot-note" style="border-top:0;padding-top:8px;margin-top:4px">
+      <span>© 2026 研究所导航 · 内容仅供检索参考</span>
+      <span>维护周期：每周五校核一次入口可达性</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var mainNav = document.getElementById('mainNav');
+  menuBtn.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.textContent = open ? '收起' : '菜单';
+  });
+  mainNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.matchMedia('(max-width:760px)').matches){
+      mainNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.textContent = '菜单';
+    }
+  });
+
+  /* 本地搜索 */
+  var input = document.getElementById('searchInput');
+  var result = document.getElementById('searchResult');
+  var pool = [];
+  document.querySelectorAll('section[id], aside .side-card h3, .pick-card h3, .news h3, details.qa summary, .step h3, .tl-item h3, .reco a').forEach(function(el){
+    var sec = el.closest('section[id]');
+    var id = sec ? sec.id : 'top';
+    var text = (el.textContent || '').replace(/\s+/g,' ').trim();
+    if(text) pool.push({text:text, id:id});
+  });
+  var seen = {};
+  pool = pool.filter(function(p){
+    var k = p.text + '|' + p.id;
+    if(seen[k]) return false;
+    seen[k] = 1; return true;
+  });
+
+  function doSearch(){
+    var q = input.value.trim().toLowerCase();
+    if(!q){ result.classList.remove('on'); result.innerHTML=''; return; }
+    var hits = pool.filter(function(p){ return p.text.toLowerCase().indexOf(q) > -1; }).slice(0,8);
+    result.classList.add('on');
+    if(!hits.length){
+      result.innerHTML = '<div class="empty">没有匹配的条目，试试“电镜”“推免”“参观”或机构简称。</div>';
+      return;
+    }
+    result.innerHTML = hits.map(function(p){
+      return '<a href="/#' + p.id + '">' + p.text.replace(/</g,'&lt;') + '</a>';
+    }).join('');
+  }
+  input.addEventListener('input', doSearch);
+  input.addEventListener('focus', function(){ if(input.value.trim()) doSearch(); });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search')) result.classList.remove('on');
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ result.classList.remove('on'); input.blur(); }
+  });
+  result.addEventListener('click', function(e){
+    var a = e.target.closest('a');
+    if(a){ result.classList.remove('on'); }
+  });
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 500){ toTop.classList.add('on'); }
+    else { toTop.classList.remove('on'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 侧栏滚动高亮 */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var targets = links.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window && targets.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var hit = links.filter(function(l){ return l.getAttribute('href') === '/#' + en.target.id; })[0];
+          if(hit) hit.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-90px 0px -60% 0px', threshold:0});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "研究所导航",
+  "description": "研究所导航收录中科院各所、国家重点实验室与高校研究院的官网入口、研究方向与联系方式。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "中科院研究所与高校研究院在申请流程上有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "中科院各所大多走统一推免与统考，招生简章由所研究生部发布，开放课题由科技处或所属国家研究中心接收；高校研究院常与院系联合培养，申请入口在学校研究生院系统，材料审核多一道院系环节。计算所2027推免网申11月5日已开，两批截止为12月20日与次年3月10日。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "开放课题的机时折算条款会写在哪份文件里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通常写在开放课题申请指南的经费使用与平台支持一节。金属所10月28日版本把折算比例放在指南末尾附注；物理所公共技术平台规则单独挂在平台主页，不并入课题指南。两处都没有时需向平台联系人确认。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "类脑智能国家工程实验室参观需要准备什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "位于中国科大西区，11月7日起开放冬季预约，每场30人，需提前3个工作日提交名单，含单位、姓名与身份证后四位。讲解约60分钟，覆盖脑成像与类脑芯片展区，个人参观并入公众开放日。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "金属所球差电镜的机时怎么预约，非所内用户能排到吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "开放课题经费到账后按每万元8小时折算，由课题组在平台系统提交机时申请，超出部分按内部价结算。非所内用户需依托单位出具使用说明，排队顺序所内课题优先，等待时长需向平台联系人确认。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "动物所标本馆团体参观预约有哪些限制？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10月15日起改为每周二、周四开放团体预约，单次上限50人，需填写带队人联系电话，参观当天携带单位介绍信。个人参观不单独受理，并入公众开放日统一安排。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+  </html>
